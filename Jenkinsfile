@@ -50,7 +50,7 @@ node {
      if (deployment == "rolling") {                                          
                
         stage('Deploy Rolling Upgrade') { 	   
-          sh "kubectl set image https://10.0.0.13:18443/helloworld helloworld=datarace/helloworld:${env.BUILD_NUMBER} --kubeconfig=/kubernetes/config/admin.conf"
+          sh "kubectl set image 10.0.0.13:18443/helloworld helloworld=datarace/helloworld:${env.BUILD_NUMBER} --kubeconfig=/kubernetes/config/admin.conf"
           sleep 120
 		
         }
