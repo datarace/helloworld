@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-bluegreen
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        tier: frontend
+        track: bluegreen
+    spec:
+      containers:
+        - name: helloworld
+          image: "jonathanfane/helloworld"
+          ports:
+            - name: http
+              containerPort: 8000

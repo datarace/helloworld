@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworld
+spec:
+  selector:
+    app: helloworld
+    track: production
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: http
+      nodePort: 30000
+  type: NodePort
+
+
