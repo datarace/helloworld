@@ -113,15 +113,9 @@ node {
        stage('TESTS FAILED COLOUR IS NOT GREEN OR BLUE - BACKING OUT') { 	   
           sh "kubectl apply -f service_backout.yaml --kubeconfig=/kubernetes/config/admin.conf"  
           sh "kubectl delete -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf" 
-        }
-       }
-     } 
-	    
-	    
-		
-    }
-	 
-    
-	
+        }	
+       } /* END IF*/
+	   } /* END bluegreen */
+	   } /* END DEPLOY TO K8S */
 }
   
