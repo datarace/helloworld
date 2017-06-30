@@ -17,3 +17,5 @@ spec:
           ports:
             - name: http
               containerPort: 8000
+      imagePullSecrets:
+        - name: myregistrykey18444
