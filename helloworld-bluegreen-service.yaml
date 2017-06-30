@@ -6,7 +6,7 @@ spec:
   selector:
     app: helloworld
     tier: frontend
-    track: bluegreen
+    track: bluegreen-REPLACED_BY_VERSION_DURING_BUILD
   ports:
     - protocol: TCP
       port: 8000
