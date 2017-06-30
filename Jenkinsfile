@@ -92,7 +92,7 @@ node {
 	  /* 
 	   * Save existing service in case we need to back out manually later
 	   */
-	  sh "kubectl get service helloworld -o yaml > service_backout.yaml"
+	  sh "kubectl get service helloworld -o yaml --kubeconfig=/kubernetes/config/admin.conf > service_backout.yaml"
 	  /*
 	   * Hook jenkins build number into selector so we hook into the correct build
 	   */
