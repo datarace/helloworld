@@ -114,7 +114,7 @@ node {
           sh "kubectl apply -f service_backout.yaml --kubeconfig=/kubernetes/config/admin.conf"  
           sh "kubectl delete -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf" 
         }
-
+       }
      } 
 	    
 	    
