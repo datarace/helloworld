@@ -102,7 +102,7 @@ node {
 		
        stage('Run Testing') { 
            COLOUR = sh (
-                   script: 'curl http://kube001:30000|grep -E 'BLUE|GREEN'|wc -l',
+                   script: 'curl http://kube001:30000|grep -E \'BLUE|GREEN\'|wc -l',
                    returnStdout: true
             ).trim()
           echo "Counted this number of BLUE or GREEN ${COLOUR}"
