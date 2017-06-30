@@ -108,11 +108,12 @@ node {
           echo "Counted this number of BLUE or GREEN ${COLOUR}"
           sleep 30
         }
-        /*
-       stage('SwitchBack to BLUE') { 	   
-          sh "kubectl apply -f helloworld-production-service.yaml --kubeconfig=/kubernetes/config/admin.conf"  
+       
+       if (${COLOR} != 1 {  
+       stage('TESTS FAILED COLOUR IS NOT GREEN OR BLUE - BACKING OUT') { 	   
+          sh "kubectl apply -f service_backout.yaml --kubeconfig=/kubernetes/config/admin.conf"  
           sh "kubectl delete -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf" 
-        }*/
+        }
 
      } 
 	    
