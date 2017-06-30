@@ -100,7 +100,7 @@ node {
           sh "kubectl apply -f helloworld-bluegreen-service.yaml --kubeconfig=/kubernetes/config/admin.conf"
         }
 		
-       /*stage('Run Testing') { 
+       stage('Run Testing') { 
            COLOUR = sh (
                    script: 'curl http://kube001:30000|grep -E 'BLUE|GREEN'|wc -l',
                    returnStdout: true
@@ -108,7 +108,7 @@ node {
           echo "Counted this number of BLUE or GREEN ${COLOUR}"
           sleep 30
         }
-
+        /*
        stage('SwitchBack to BLUE') { 	   
           sh "kubectl apply -f helloworld-production-service.yaml --kubeconfig=/kubernetes/config/admin.conf"  
           sh "kubectl delete -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf" 
