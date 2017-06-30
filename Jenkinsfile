@@ -91,14 +91,14 @@ node {
           sh "kubectl apply -f helloworld-bluegreen-service.yaml --kubeconfig=/kubernetes/config/admin.conf"
         }
 		
-       stage('Run Testing') { 	   
+       /*stage('Run Testing') { 	   
           sleep 30
         }
 
        stage('SwitchBack to BLUE') { 	   
           sh "kubectl apply -f helloworld-production-service.yaml --kubeconfig=/kubernetes/config/admin.conf"  
           sh "kubectl delete -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf" 
-        }
+        }*/
 
      } 
 	    
