@@ -9,7 +9,7 @@ spec:
       labels:
         app: helloworld
         tier: frontend
-        track: bluegreen-REPLACED_BY_VERSION_DURING_BUILD
+        track: bluegreenREPLACED_BY_VERSION_DURING_BUILD
     spec:
       containers:
         - name: helloworld
