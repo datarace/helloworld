@@ -83,6 +83,7 @@ node {
      if (deployment == "bluegreen") {       
 	     
        stage('Deploy GREEN Release') { 	   
+     	  sh "sed -ie 's/THIS_STRING_IS_REPLACED_DURING_BUILD/${env.BUILD_NUMBER}/g' helloworld-bluegreen-deployment.yaml"
           sh "kubectl apply -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf"
 	      sleep 60
         }
