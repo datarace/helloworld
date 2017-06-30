@@ -81,14 +81,15 @@ node {
 	 
      /* RUN A BLUE/GREEN */
      if (deployment == "bluegreen") {       
-	     
        stage('Deploy GREEN Release') { 	   
      	  sh "sed -ie 's/THIS_STRING_IS_REPLACED_DURING_BUILD/${env.BUILD_NUMBER}/g' helloworld-bluegreen-deployment.yaml"
+	  sh "sed -ie 's/REPLACED_BY_VERSION_DURING_BUILD/${env.BUILD_NUMBER}/g' helloworld-bluegreen-deployment.yaml"
           sh "kubectl apply -f helloworld-bluegreen-deployment.yaml --kubeconfig=/kubernetes/config/admin.conf"
 	      sleep 60
         }
                
-       stage('Switchover to GREEN') { 	   
+       stage('Switchover to GREEN') { 	
+	  sh "sed -ie 's/REPLACED_BY_VERSION_DURING_BUILD/${env.BUILD_NUMBER}/g' helloworld-bluegreen-service.yaml"  
           sh "kubectl apply -f helloworld-bluegreen-service.yaml --kubeconfig=/kubernetes/config/admin.conf"
         }
 		
