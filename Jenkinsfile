@@ -89,11 +89,23 @@ node {
         }
                
        stage('Switchover to GREEN') { 	
+	  /* 
+	   * Save existing service in case we need to back out manually later
+	   */
+	  sh "kubectl get service helloworld -o yaml > service_backout.yaml"
+	  /*
+	   * Hook jenkins build number into selector so we hook into the correct build
+	   */
 	  sh "sed -ie 's/REPLACED_BY_VERSION_DURING_BUILD/${env.BUILD_NUMBER}/g' helloworld-bluegreen-service.yaml"  
           sh "kubectl apply -f helloworld-bluegreen-service.yaml --kubeconfig=/kubernetes/config/admin.conf"
         }
 		
-       /*stage('Run Testing') { 	   
+       /*stage('Run Testing') { 
+           COLOUR = sh (
+                   script: 'curl http://kube001:30000|grep -E 'BLUE|GREEN'|wc -l',
+                   returnStdout: true
+            ).trim()
+          echo "Counted this number of BLUE or GREEN ${COLOUR}"
           sleep 30
         }
 
