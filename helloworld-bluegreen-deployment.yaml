@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: helloworld
-          image: "10.0.0.13:18444/datarace/helloworld:29"
+          image: "10.0.0.13:18444/datarace/helloworld:THIS_STRING_IS_REPLACED_DURING_BUILD"
           imagePullPolicy: Always
           ports:
             - name: http
