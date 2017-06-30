@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: helloworld-bluegreen-REPLACED_BY_VERSION_DURING_BUILD
+  name: helloworld-bluegreen
 spec:
   replicas: 1
   template:
@@ -9,7 +9,7 @@ spec:
       labels:
         app: helloworld
         tier: frontend
-        track: bluegreen
+        track: bluegreen-REPLACED_BY_VERSION_DURING_BUILD
     spec:
       containers:
         - name: helloworld
